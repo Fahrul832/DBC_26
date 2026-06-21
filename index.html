@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Digital Business Challenge 2026 - Kompetisi digital marketing Project-Based untuk siswa/i SMA/SMK Sederajat."
+    />
+    <title>Digital Business Challenge 2026</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    /></noscript>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1e2a44",
+              secondary: "#151d30",
+              gold: "#d4af37",
+              goldHover: "#f0c848",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+            animation: {
+              float: "float 6s cubic-bezier(0.4, 0, 0.2, 1) infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-12px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* --- Animasi Scroll Reveal --- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Animasi masuk pertama kali saat web diload */
+      .fade-in-start {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInStart 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      @keyframes fadeInStart {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Hover Effects untuk Card */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+      }
+
+      /* Scroll to Top */
+      #scrollToTop {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      #scrollToTop.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-[#f4f7f6] text-gray-800 antialiased font-sans selection:bg-gold selection:text-primary overflow-x-hidden"
+  >
+    <!-- Tombol Kembali ke Atas -->
+    <button
+      id="scrollToTop"
+      class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-gold rounded-full flex items-center justify-center shadow-2xl hover:bg-gold hover:text-primary transition-all duration-300 z-50 focus:outline-none focus:ring-4 focus:ring-gold/30 hover:-translate-y-1"
+      aria-label="Kembali ke atas"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Header / Hero Section -->
+    <header
+      class="relative bg-gradient-to-b from-secondary to-primary text-white pt-16 pb-24 md:pt-20 md:pb-28 px-5 sm:px-8 overflow-hidden z-10 shadow-2xl"
+    >
+      <!-- Ornamen Latar Belakang Subtle -->
+      <div
+        class="absolute inset-0 opacity-[0.04] z-0"
+        style="
+          background-image: radial-gradient(#ffffff 2px, transparent 2px);
+          background-size: 30px 30px;
+        "
+      ></div>
+      <div
+        class="absolute top-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-gold/10 rounded-full blur-[80px] md:blur-[100px] -z-10 translate-x-1/3 -translate-y-1/3"
+      ></div>
+
+      <div
+        class="max-w-4xl mx-auto flex flex-col items-center text-center relative z-20"
+      >
+        <!-- LOGO FIXED -->
+        <div class="fade-in-start" style="animation-delay: 0.1s">
+          <div
+            class="w-28 sm:w-36 md:w-44 mb-6 md:mb-8 animate-float drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]"
+          >
+            <img
+              src="LOGO DBC putih.webp"
+              alt="Logo UPGRIS DBC"
+              class="w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 md:mb-6 tracking-tight leading-[1.2] md:leading-tight fade-in-start px-2"
+          style="animation-delay: 0.3s"
+        >
+          Digital Business <br class="hidden md:block" />
+          Challenge 2026
+        </h1>
+
+        <p
+          class="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl mb-8 md:mb-10 max-w-2xl font-medium fade-in-start leading-relaxed px-2 sm:px-4"
+          style="animation-delay: 0.5s"
+        >
+          Kompetisi Digital Marketing eksklusif untuk siswa/i SMA/SMK Sederajat.
+          Tunjukkan strategimu, menangkan tantangannya!
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row w-full sm:w-auto gap-3 sm:gap-5 fade-in-start px-4 sm:px-0"
+          style="animation-delay: 0.7s"
+        >
+          <!-- Tombol Daftar -->
+          <a
+            href="https://forms.gle/ZtxNzJtEKDR1Gzd19"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center justify-center w-full sm:w-auto px-6 md:px-8 py-3.5 md:py-4 bg-gold text-primary font-bold rounded-xl hover:bg-goldHover transition-all duration-300 shadow-[0_4px_20px_rgba(212,175,55,0.3)] hover:shadow-[0_8px_30px_rgba(212,175,55,0.5)] hover:-translate-y-1 min-w-[200px] text-sm md:text-base"
+          >
+            Daftar Sekarang
+          </a>
+          <!-- Tombol Juknis Langsung Download -->
+          <a
+            href="PANDUAN TEKNIS DIGITAL BUSINESS CHALLANGE 2026 (1).pdf"
+            download="Juknis_Digital_Business_Challenge_2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center justify-center w-full sm:w-auto px-6 md:px-8 py-3.5 md:py-4 bg-transparent border-2 border-white/40 text-white font-semibold rounded-xl hover:bg-white hover:border-white hover:text-primary transition-all duration-300 min-w-[200px] text-sm md:text-base"
+          >
+            Juknis
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tentang Kompetisi -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 relative -mt-8 md:-mt-10 z-20">
+      <div class="max-w-5xl mx-auto reveal">
+        <div
+          class="glass-card p-6 sm:p-10 md:p-14 rounded-2xl md:rounded-3xl shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] border border-white"
+        >
+          <div class="text-center mb-8 md:mb-10">
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-primary mb-3 md:mb-4"
+            >
+              Waktunya Unjuk Gigi!
+            </h2>
+            <div class="w-16 md:w-20 h-1.5 bg-gold mx-auto rounded-full"></div>
+          </div>
+
+          <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+            <div class="w-full md:w-5/12 text-center md:text-left">
+              <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+                Kompetisi ini menggunakan sistem
+                <strong>Project-Based Competition</strong>. Jadilah talenta
+                digital marketer muda dengan merancang solusi bisnis masa depan
+                secara terstruktur.
+              </p>
+            </div>
+
+            <div class="w-full md:w-7/12 flex flex-col gap-4 md:gap-6">
+              <div
+                class="flex items-start gap-4 md:gap-5 p-4 md:p-5 rounded-xl md:rounded-2xl bg-slate-50 border border-slate-100 hover:border-gold/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
+              >
+                <div
+                  class="w-10 h-10 md:w-12 md:h-12 shrink-0 bg-primary rounded-full flex items-center justify-center text-gold group-hover:scale-110 transition-transform duration-300"
+                >
+                  <i class="fas fa-sitemap text-sm md:text-base"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-primary text-lg md:text-xl mb-1">
+                    Business Model Canvas (BMC)
+                  </h4>
+                  <p class="text-gray-500 text-sm md:text-base">
+                    Menyusun ide bisnis digital inovatif yang dituangkan ke
+                    dalam lembar kerja 9 elemen BMC secara terstruktur dan
+                    realistis.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-start gap-4 md:gap-5 p-4 md:p-5 rounded-xl md:rounded-2xl bg-slate-50 border border-slate-100 hover:border-gold/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
+              >
+                <div
+                  class="w-10 h-10 md:w-12 md:h-12 shrink-0 bg-primary rounded-full flex items-center justify-center text-gold group-hover:scale-110 transition-transform duration-300"
+                >
+                  <i class="fas fa-image text-sm md:text-base"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-primary text-lg md:text-xl mb-1">
+                    Poster Kreatif
+                  </h4>
+                  <p class="text-gray-500 text-sm md:text-base">
+                    Membuat media promosi visual berupa poster menarik yang
+                    merepresentasikan produk atau jasa dari ide bisnis.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tahapan Kompetisi (Grid Disesuaikan untuk 6 Tahapan) -->
+    <section class="py-12 md:py-20 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-10 md:mb-16 reveal">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-primary mb-3 md:mb-4"
+          >
+            Timeline Kegiatan
+          </h2>
+          <div
+            class="w-16 md:w-20 h-1.5 bg-gold mx-auto rounded-full mb-3 md:mb-4"
+          ></div>
+          <p class="text-gray-500 text-sm md:text-lg">
+            Catat tanggal pentingnya dan persiapkan karya terbaikmu.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+        >
+          <!-- Box 1 -->
+          <div
+            class="p-6 md:p-8 bg-white rounded-xl md:rounded-2xl border border-gray-100 shadow-sm hover:shadow-[0_15px_30px_-5px_rgba(30,42,68,0.1)] hover:border-gold/50 hover:-translate-y-2 transition-all duration-300 group reveal"
+            style="transition-delay: 50ms"
+          >
+            <div
+              class="w-12 h-12 md:w-14 md:h-14 bg-slate-50 rounded-lg md:rounded-xl flex items-center justify-center mb-4 md:mb-5 group-hover:bg-gold/10 transition-colors"
+            >
+              <i
+                class="fas fa-user-plus text-xl md:text-2xl text-primary group-hover:text-gold transition-colors"
+              ></i>
+            </div>
+            <h3 class="font-bold text-primary text-base md:text-xl mb-1">
+              Pendaftaran & Pengumpulan
+            </h3>
+            <p class="text-gold font-bold text-xs md:text-sm mb-2 md:mb-3">
+              1 Juni - 1 Juli 2026
+            </p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Peserta mendaftar sekaligus langsung mengunggah file poster
+              kreatif dan dokumen BMC.
+            </p>
+          </div>
+
+          <!-- Box 2 -->
+          <div
+            class="p-6 md:p-8 bg-white rounded-xl md:rounded-2xl border border-gray-100 shadow-sm hover:shadow-[0_15px_30px_-5px_rgba(30,42,68,0.1)] hover:border-gold/50 hover:-translate-y-2 transition-all duration-300 group reveal"
+            style="transition-delay: 100ms"
+          >
+            <div
+              class="w-12 h-12 md:w-14 md:h-14 bg-slate-50 rounded-lg md:rounded-xl flex items-center justify-center mb-4 md:mb-5 group-hover:bg-gold/10 transition-colors"
+            >
+              <i
+                class="fas fa-file-signature text-xl md:text-2xl text-primary group-hover:text-gold transition-colors"
+              ></i>
+            </div>
+            <h3 class="font-bold text-primary text-base md:text-xl mb-1">
+              Seleksi & Validasi Berkas
+            </h3>
+            <p class="text-gold font-bold text-xs md:text-sm mb-2 md:mb-3">
+              1 Juli - 9 Juli 2026
+            </p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Proses pengecekan keaslian berkas dan kesesuaian format file oleh
+              panitia penyelenggara.
+            </p>
+          </div>
+
+          <!-- Box 3 -->
+          <div
+            class="p-6 md:p-8 bg-white rounded-xl md:rounded-2xl border border-gray-100 shadow-sm hover:shadow-[0_15px_30px_-5px_rgba(30,42,68,0.1)] hover:border-gold/50 hover:-translate-y-2 transition-all duration-300 group reveal"
+            style="transition-delay: 150ms"
+          >
+            <div
+              class="w-12 h-12 md:w-14 md:h-14 bg-slate-50 rounded-lg md:rounded-xl flex items-center justify-center mb-4 md:mb-5 group-hover:bg-gold/10 transition-colors"
+            >
+              <i
+                class="fas fa-clipboard-check text-xl md:text-2xl text-primary group-hover:text-gold transition-colors"
+              ></i>
+            </div>
+            <h3 class="font-bold text-primary text-base md:text-xl mb-1">
+              Penilaian Babak Penyisihan
+            </h3>
+            <p class="text-gold font-bold text-xs md:text-sm mb-2 md:mb-3">
+              9 Juli - 16 Juli 2026
+            </p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Perhitungan interaksi (likes) dan penilaian mendalam dokumen
+              Poster dan BMC oleh Juri.
+            </p>
+          </div>
+
+          <!-- Box 4 -->
+          <div
+            class="p-6 md:p-8 bg-white rounded-xl md:rounded-2xl border border-gray-100 shadow-sm hover:shadow-[0_15px_30px_-5px_rgba(30,42,68,0.1)] hover:border-gold/50 hover:-translate-y-2 transition-all duration-300 group reveal"
+            style="transition-delay: 200ms"
+          >
+            <div
+              class="w-12 h-12 md:w-14 md:h-14 bg-slate-50 rounded-lg md:rounded-xl flex items-center justify-center mb-4 md:mb-5 group-hover:bg-gold/10 transition-colors"
+            >
+              <i
+                class="fas fa-users text-xl md:text-2xl text-primary group-hover:text-gold transition-colors"
+              ></i>
+            </div>
+            <h3 class="font-bold text-primary text-base md:text-xl mb-1">
+              Technical Meeting (TM)
+            </h3>
+            <p class="text-gold font-bold text-xs md:text-sm mb-2 md:mb-3">
+              17 Juli 2026
+            </p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Pengarahan teknis, nomor urut, dan simulasi room zoom khusus untuk
+              babak presentasi final.
+            </p>
+          </div>
+
+          <!-- Box 5 -->
+          <div
+            class="p-6 md:p-8 bg-white rounded-xl md:rounded-2xl border border-gray-100 shadow-sm hover:shadow-[0_15px_30px_-5px_rgba(30,42,68,0.1)] hover:border-gold/50 hover:-translate-y-2 transition-all duration-300 group reveal"
+            style="transition-delay: 250ms"
+          >
+            <div
+              class="w-12 h-12 md:w-14 md:h-14 bg-slate-50 rounded-lg md:rounded-xl flex items-center justify-center mb-4 md:mb-5 group-hover:bg-gold/10 transition-colors"
+            >
+              <i
+                class="fas fa-laptop text-xl md:text-2xl text-primary group-hover:text-gold transition-colors"
+              ></i>
+            </div>
+            <h3 class="font-bold text-primary text-base md:text-xl mb-1">
+              Sesi Presentasi Final
+            </h3>
+            <p class="text-gold font-bold text-xs md:text-sm mb-2 md:mb-3">
+              21 Juli 2026
+            </p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Acara Puncak! Sesi presentasi ide bisnis dan tanya jawab langsung
+              di hadapan dewan juri via Zoom.
+            </p>
+          </div>
+
+          <!-- Box 6 -->
+          <div
+            class="p-6 md:p-8 bg-white rounded-xl md:rounded-2xl border border-gray-100 shadow-sm hover:shadow-[0_15px_30px_-5px_rgba(30,42,68,0.1)] hover:border-gold/50 hover:-translate-y-2 transition-all duration-300 group reveal"
+            style="transition-delay: 300ms"
+          >
+            <div
+              class="w-12 h-12 md:w-14 md:h-14 bg-slate-50 rounded-lg md:rounded-xl flex items-center justify-center mb-4 md:mb-5 group-hover:bg-gold/10 transition-colors"
+            >
+              <i
+                class="fas fa-award text-xl md:text-2xl text-primary group-hover:text-gold transition-colors"
+              ></i>
+            </div>
+            <h3 class="font-bold text-primary text-base md:text-xl mb-1">
+              Penilaian Dewan Juri
+            </h3>
+            <p class="text-gold font-bold text-xs md:text-sm mb-2 md:mb-3">
+              21 - 27 Juli 2026
+            </p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Proses rekapitulasi nilai akhir dan verifikasi penentuan pemenang
+              kompetisi oleh Dewan Juri.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Banner CTA Pendaftaran (Desain Elegan) -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 reveal">
+      <div
+        class="max-w-5xl mx-auto bg-primary text-white text-center rounded-2xl md:rounded-[3rem] py-12 md:py-16 px-5 sm:px-8 relative overflow-hidden shadow-2xl"
+      >
+        <!-- Ornamen Lingkaran Emas -->
+        <div
+          class="absolute -top-20 -left-20 md:-top-32 md:-left-32 w-48 h-48 md:w-64 md:h-64 border-[20px] md:border-[30px] border-white/5 rounded-full"
+        ></div>
+        <div
+          class="absolute -bottom-20 -right-20 md:-bottom-32 md:-right-32 w-64 h-64 md:w-80 md:h-80 border-[30px] md:border-[40px] border-gold/10 rounded-full"
+        ></div>
+
+        <div class="relative z-10">
+          <h2
+            class="text-2xl sm:text-3xl md:text-5xl font-serif font-bold mb-4 md:mb-6 leading-tight"
+          >
+            Siap Jadi Jawara Digital?
+          </h2>
+          <p
+            class="text-gray-300 mb-8 md:mb-10 font-medium text-sm md:text-lg max-w-2xl mx-auto leading-relaxed"
+          >
+            Ini adalah langkah pertamamu. Jangan lewatkan kesempatan emas untuk
+            membuktikan ide bisnismu di tingkat Nasional.
+          </p>
+          <a
+            href="https://forms.gle/ZtxNzJtEKDR1Gzd19"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex items-center justify-center w-full sm:w-auto px-8 md:px-10 py-3.5 md:py-4 bg-gold text-primary font-bold rounded-xl hover:bg-goldHover transition-all duration-300 shadow-[0_4px_20px_rgba(212,175,55,0.3)] hover:shadow-[0_8px_30px_rgba(212,175,55,0.5)] hover:-translate-y-1 text-sm md:text-base"
+          >
+            Daftar Sekarang
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Clean -->
+    <footer
+      class="bg-secondary text-gray-400 py-10 md:py-12 px-5 sm:px-6 border-t border-white/5"
+    >
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8"
+      >
+        <div class="text-center md:text-left">
+          <p class="font-bold text-white mb-1 text-base md:text-lg">
+            Digital Business Challenge 2026
+          </p>
+          <p class="text-xs md:text-sm">
+            Himpunan Mahasiswa Bisnis Digital UPGRIS
+          </p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <a
+            href="https://www.instagram.com/upgris.dbc"
+            target="_blank"
+            class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-gold hover:text-primary transition-all duration-300 hover:scale-110"
+            aria-label="Instagram UPGRIS DBC"
+          >
+            <i class="fab fa-instagram text-base md:text-lg"></i>
+          </a>
+          <a
+            href="mailto:dbchimabisdig@gmail.com"
+            class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-gold hover:text-primary transition-all duration-300 hover:scale-110"
+            aria-label="Email UPGRIS DBC"
+          >
+            <i class="fas fa-envelope text-base md:text-lg"></i>
+          </a>
+        </div>
+
+        <div class="text-xs md:text-sm text-center md:text-right">
+          <p>
+            &copy; <span id="currentYear"></span> HIMA Bisnis Digital UPGRIS.
+          </p>
+          <p>All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script Logika untuk Animasi Scroll Reveal -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Tahun otomatis di footer
+        document.getElementById("currentYear").textContent =
+          new Date().getFullYear();
+
+        // Fitur Scroll to Top yang halus
+        const scrollToTopBtn = document.getElementById("scrollToTop");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 400) {
+            scrollToTopBtn.classList.add("show");
+          } else {
+            scrollToTopBtn.classList.remove("show");
+          }
+        });
+
+        scrollToTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // --- Logika Intersection Observer untuk Animasi Scroll ---
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+              }
+            });
+          },
+          {
+            root: null,
+            rootMargin: "0px 0px -20px 0px", // Diturunkan sedikit agar lebih responsif di mobile
+            threshold: 0.1,
+          },
+        );
+
+        revealElements.forEach((el) => revealObserver.observe(el));
+      });
+    </script>
+  </body>
+</html>
